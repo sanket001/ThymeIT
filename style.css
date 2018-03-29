@@ -1,0 +1,105 @@
+
+  	
+  	div.menu a.item {
+
+  		font-size: 25px;
+      font-family: TimesNewRoman, "Times New Roman", Times;
+      margin-left: 40px;
+  	}
+
+  	div.column .wide {
+
+  		border: solid 10px #F2594B;
+  		border-radius: 20px;
+  		margin: 15px;
+  	}
+
+    div#hover {
+
+      padding: 8px;
+    }
+
+    #hover:hover { background-color: #63A69F }
+
+    body {
+
+      background-color: white;
+    }
+
+    h3#title {
+
+      font-size: 25px;
+      font-family: TimesNewRoman, "Times New Roman", Times;
+
+    }
+
+    h4#time {
+
+      font-size: 20px;
+      font-family: TimesNewRoman, "Times New Roman", Times;
+    }
+
+    button#add {
+
+      font-size: 18px;
+      font-family: "Verdana", Verdana, sans-serif;
+      border-radius: 20px;
+      background-color: #F2594B;
+    }
+
+    button#del {
+
+      font-size: 15px;
+      font-family: "Verdana", Verdana, sans-serif;
+      border-radius: 20px;
+      background-color: #F2594B;
+  
+    }
+
+    div#first {
+
+      background-color: #CD2C24;
+
+    }
+
+    div#pusher {
+
+      padding: 10px;
+      text-align: center;
+      
+    }
+
+    a#signup {
+
+      font-size: 20px;
+
+    }
+
+    div#account {
+
+      font-size: 20px;
+      font-family: TimesNewRoman, "Times New Roman", Times;
+
+    }
+
+    div#welcome {
+
+      font-size: 30px;
+      font-family: TimesNewRoman, "Times New Roman", Times;
+
+    }
+
+    i#desc {
+
+      font-size: 18px;
+      font-family: TimesNewRoman, "Times New Roman", Times;
+
+    }
+
+    div#continue {
+
+      border-radius: 20px;
+      background-color: #F2594B;
+
+    }
+
