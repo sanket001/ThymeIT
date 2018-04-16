@@ -25,11 +25,14 @@
 	  
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Update <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Faculty Data</a></li>
-		  <li><a href="#">Student Data</a></li>
-		  <li><a href="#">Course Data</a></li> 
+          <li><a href="vaish.html">Faculty Data</a></li>
+		  <li><a href="Update2.html">Student Data</a></li>
+		  <li><a href="Update3.html">Course Data</a></li> 
         </ul>
       </li>
+	  
+	  
+
 	  
 	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -54,9 +57,63 @@
 <textarea class="xyz" rows="8" cols="45">
 No faculty data uploded yet!
 </textarea>
-<div class="col-sm-3"><button type="button" class="btn btn-info">&nbsp&nbspSelect File</a>&nbsp&nbsp&nbsp&nbsp</button></div>
-<div class="col-sm-3"><button type="button" class="btn btn-info">&nbspUpload .CSV&nbsp</button></div>
-<div class="col-sm-3"><button type="button" class="btn btn-info">Remove File</button></div>
+<div class="col-sm-3"><button type="button" class="btn btn-info">&nbspUpload .CSV&nbsp&nbsp
+<h1>Uploading a CSV File</h1>
+
+<b>CSV File</b> <input type="file" id="csvfile"> 
+<br />
+
+<b>Header</b> <select id="header">
+<option>true</option>
+<option>false</option>
+</select> 
+<pre><code id="output"></code></pre>
+<script>
+
+ocpu.seturl("//public.opencpu.org/ocpu/library/utils/R")
+
+//actual handler
+$("#submitbutton").on("click", function(){
+
+    //arguments
+    var myheader = $("#header").val() == "true";
+    var myfile = $("#csvfile")[0].files[0];
+        
+    if(!myfile){
+        alert("No file selected.");
+        return;
+    }
+
+    
+
+    //perform the request
+    var req = ocpu.call("read.csv", {
+        "file" : myfile,
+        "header" : myheader
+    }, function(session){
+        session.getConsole(function(outtxt){
+            $("#output").text(outtxt); 
+        });
+    });
+        
+    //if R returns an error, alert the error message
+    req.fail(function(){
+        alert("Server error: " + req.responseText);
+    });
+    
+    //after request complete, re-enable the button 
+    req.always(function(){
+        $("#submitbutton").removeAttr("disabled")
+    });        
+});    
+
+<br />
+<button id="submitbutton" type="button"read.csv</button>
+</script>
+</button>
+</div>
+<div class="col-sm-3"><button type="button" class="btn btn-info">&nbspSelect File&nbsp&nbsp</button></div>
+<div class="col-sm-3"><button type="button" class="btn btn-info">&nbspRemove File&nbsp&nbsp</button></div>
 </div>
 </div>
 </body>
